@@ -1,7 +1,9 @@
 import { Bot } from 'grammy';
 import dotenv from 'dotenv';
+import { setupProxy } from './lib/proxy.js';
 
 dotenv.config();
+setupProxy();
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
 const AUTHORIZED_USER_ID = parseInt(process.env.TELEGRAM_AUTHORIZED_USER_ID!);

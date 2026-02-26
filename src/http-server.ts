@@ -3,6 +3,9 @@ import { execFile } from 'child_process';
 import { promisify } from 'util';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { setupProxy } from './lib/proxy.js';
+
+setupProxy();
 
 const execFileAsync = promisify(execFile);
 

@@ -16,6 +16,9 @@ import { TelegramUserClient } from './telegram-user-client.js'
 import { createErrorResult } from '../../src/types/mcp.js'
 import { sendMessageTool } from './tools.js'
 import { getChatHistoryTool, searchUserTool } from './dialogue-tools.js'
+import { setupProxy } from '../../src/lib/proxy.js'
+
+setupProxy()
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
 const AUTHORIZED_USER_ID = process.env.TELEGRAM_AUTHORIZED_USER_ID

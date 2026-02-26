@@ -10,8 +10,10 @@ import { join } from 'path'
 import dotenv from 'dotenv'
 import { MCPClient } from '../src/lib/mcp-client.js'
 import { conversationLogger } from '../src/lib/conversation-logger.js'
+import { setupProxy } from '../src/lib/proxy.js'
 
 dotenv.config()
+setupProxy()
 
 // Read CLI arguments
 const TELEGRAM_CHAT_ID = process.argv[2]

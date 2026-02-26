@@ -21,6 +21,9 @@ import {
   getPageTool,
   deletePageTool,
 } from './tools.js'
+import { setupProxy } from '../../src/lib/proxy.js'
+
+setupProxy()
 
 const NOTION_API_KEY = process.env.NOTION_API_KEY
 const NOTION_KNOWLEDGE_DB = process.env.NOTION_KNOWLEDGE_DB_ID

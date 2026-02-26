@@ -14,6 +14,9 @@ import {
 import { PerplexityClient } from './perplexity-client.js'
 import { createErrorResult } from '../../src/types/mcp.js'
 import { searchTool } from './tools.js'
+import { setupProxy } from '../../src/lib/proxy.js'
+
+setupProxy()
 
 const API_KEY = process.env.PERPLEXITY_API_KEY
 
