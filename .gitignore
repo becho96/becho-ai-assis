@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Data & Logs
+data/
+*.log
+/tmp/
+*.db
+*.db-journal
+
+# MCP Server data
+mcp-servers/**/data/
+mcp-servers/**/*.db
+
+# Build
+dist/
+build/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# n8n data (if running locally)
+n8n-data/
+.n8n/
+
+# ChromaDB
+chroma/
+*.chroma
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp

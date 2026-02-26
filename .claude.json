@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "notion": {
+      "command": "npx",
+      "args": ["tsx", "mcp-servers/notion/index.ts"],
+      "env": {
+        "NOTION_API_KEY": "${NOTION_API_KEY}",
+        "NOTION_KNOWLEDGE_DB_ID": "${NOTION_KNOWLEDGE_DB_ID}",
+        "NOTION_TASKS_DB_ID": "${NOTION_TASKS_DB_ID}",
+        "NOTION_DAILY_LOG_DB_ID": "${NOTION_DAILY_LOG_DB_ID}"
+      }
+    },
+    "telegram": {
+      "command": "npx",
+      "args": ["tsx", "mcp-servers/telegram/index.ts"],
+      "env": {
+        "TELEGRAM_BOT_TOKEN": "${TELEGRAM_BOT_TOKEN}",
+        "TELEGRAM_AUTHORIZED_USER_ID": "${TELEGRAM_AUTHORIZED_USER_ID}"
+      }
+    },
+    "perplexity": {
+      "command": "npx",
+      "args": ["tsx", "mcp-servers/perplexity/index.ts"],
+      "env": {
+        "PERPLEXITY_API_KEY": "${PERPLEXITY_API_KEY}"
+      }
+    },
+    "local-data": {
+      "command": "npx",
+      "args": ["mcp-servers/local-data/index.ts"],
+      "env": {
+        "DB_PATH": "${DB_PATH}"
+      }
+    }
+  }
+}

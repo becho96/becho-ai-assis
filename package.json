@@ -1,0 +1,48 @@
+{
+  "name": "becho-ai-assistant",
+  "version": "1.0.0",
+  "description": "Personal multi-agent AI assistant powered by Claude Code",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start:server": "tsx src/http-server.ts",
+    "start:bot": "tsx src/telegram-bot.ts",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "init:db": "tsx scripts/init-sqlite.ts",
+    "init:notion": "tsx scripts/setup-notion-databases.ts",
+    "test:bot": "tsx scripts/test-telegram-bot.ts",
+    "test:mcp": "tsx scripts/test-mcp-servers.ts",
+    "test:orchestrator": "tsx scripts/test-orchestrator-v2.ts",
+    "sync:notion": "tsx scripts/sync-notion-to-vectors.ts",
+    "test:logger": "tsx scripts/test-conversation-logger.ts",
+    "analyze:logs": "tsx scripts/analyze-conversation-logs.ts",
+    "view:logs": "tsx scripts/view-recent-conversations.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "@notionhq/client": "^2.2.15",
+    "@types/express": "^5.0.6",
+    "better-sqlite3": "^11.7.0",
+    "chromadb": "^1.9.2",
+    "dotenv": "^16.4.7",
+    "express": "^5.2.1",
+    "grammy": "^1.32.0",
+    "telegram": "^2.26.22",
+    "tsdav": "^2.0.5",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.10.2",
+    "@vitest/coverage-v8": "^2.1.8",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
