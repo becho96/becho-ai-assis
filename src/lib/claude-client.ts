@@ -223,7 +223,7 @@ export class ClaudeClient {
     // Agentic loop: allow Claude to use tools iteratively
     for (let iteration = 0; iteration < maxIterations; iteration++) {
       const response = await this.client.messages.create({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',
         max_tokens: 4096,
         system: systemPrompt,
         messages,
