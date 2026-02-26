@@ -1,0 +1,51 @@
+name: Deploy to Yandex Cloud
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy via SSH
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script_stop: true
+          script: |
+            set -e
+
+            PROJECT_DIR="/opt/becho-ai-assis"
+
+            echo "==> Navigating to project directory..."
+            cd "$PROJECT_DIR"
+
+            echo "==> Pulling latest code from main..."
+            git pull origin main
+
+            echo "==> Building Docker images..."
+            docker compose build
+
+            echo "==> Restarting services..."
+            docker compose up -d
+
+            echo "==> Waiting for services to become healthy..."
+            sleep 10
+
+            echo "==> Service status:"
+            docker compose ps
+
+            echo "==> Health check..."
+            curl -sf http://localhost:3000/health && echo "HTTP server: OK" || echo "HTTP server: FAILED"
+
+            echo "==> Deploy complete!"
