@@ -33,6 +33,9 @@ jobs:
             echo "==> Fixing git safe directory..."
             git config --global --add safe.directory "$PROJECT_DIR"
 
+            echo "==> Fixing directory ownership..."
+            sudo chown -R "$(whoami)":"$(whoami)" "$PROJECT_DIR"
+
             echo "==> Pulling latest code from main..."
             git pull origin main
 
